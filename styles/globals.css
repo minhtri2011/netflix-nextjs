@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .link {
+    @apply ml-5 text-[.85vw] lg:text-[14px] [&.active]:font-bold [&.active]:text-white [&.active]:hover:text-white [&.active]:cursor-default text-[#E5E5E5] hover:text-[#b3b3b3] transition-colors duration-200 ease-in-out cursor-pointer;
+  }
+}
+@layer utilities {
+  .gradient-to-b-black-transparent {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, transparent);
+  }
+  .gradient-to-r-black-transparent {
+    background: linear-gradient(77deg, rgba(0, 0, 0, 0.6), transparent 85%);
+  }
+  .fix-img-inline > span {
+    display: block !important;
+    height: 100% !important;
+  }
+}
+
+body {
+  @apply bg-black;
+}
