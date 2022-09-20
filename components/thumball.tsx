@@ -2,8 +2,6 @@ import { baseUrl } from "@/constants/movie";
 import { Movie } from "@/typing";
 import Image from "next/image";
 import * as React from "react";
-import { AiFillPlayCircle, AiOutlineLike } from "react-icons/ai";
-import { IoAddCircleOutline } from "react-icons/io5";
 
 interface Props {
   item: Movie;
@@ -15,7 +13,7 @@ export default function Thumball({ item, refitem }: Props) {
     <div
       ref={refitem}
       key={item.id}
-      className="inline-block w-[16.66666667%] px-1"
+      className="inline-block w-[calc(100%/3)] md:w-[calc(100%/6)] px-1"
     >
       <div className="relative cursor-pointer delay-120 aspect-[16/9] w-full hover:z-30 hover:scale-150 transition-all duration-500">
         <Image
@@ -26,11 +24,6 @@ export default function Thumball({ item, refitem }: Props) {
           objectFit="cover"
           priority={true}
         />
-        <div>
-          <AiFillPlayCircle />
-          <IoAddCircleOutline />
-          <AiOutlineLike />
-        </div>
       </div>
     </div>
   );
