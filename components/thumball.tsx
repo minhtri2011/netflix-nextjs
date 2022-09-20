@@ -2,24 +2,36 @@ import { baseUrl } from "@/constants/movie";
 import { Movie } from "@/typing";
 import Image from "next/image";
 import * as React from "react";
+import { AiFillPlayCircle, AiOutlineLike } from "react-icons/ai";
+import { IoAddCircleOutline } from "react-icons/io5";
 
 interface Props {
   item: Movie;
+  refitem: React.RefObject<HTMLDivElement>;
 }
 
-export default function Thumball({ item }: Props) {
+export default function Thumball({ item, refitem }: Props) {
   return (
     <div
+      ref={refitem}
       key={item.id}
-      className=" relative w-full cursor-pointer transition duration-200 ease-out md:h-36 md:min-w-[260px] md:hover:scale-[120%] delay-120 hover:z-10"
+      className="inline-block w-[16.66666667%] px-1"
     >
-      <Image
-        className="rounded-sm"
-        src={`${baseUrl}${item.backdrop_path || item.poster_path}`}
-        alt="netflix"
-        layout="fill"
-        objectFit="cover"
-      />
+      <div className="relative cursor-pointer delay-120 aspect-[16/9] w-full hover:z-30 hover:scale-150 transition-all duration-500">
+        <Image
+          className="rounded-sm"
+          src={`${baseUrl}${item.backdrop_path || item.poster_path}`}
+          alt="netflix"
+          layout="fill"
+          objectFit="cover"
+          priority={true}
+        />
+        <div>
+          <AiFillPlayCircle />
+          <IoAddCircleOutline />
+          <AiOutlineLike />
+        </div>
+      </div>
     </div>
   );
 }

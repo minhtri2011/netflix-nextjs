@@ -16,7 +16,6 @@ const Banner = ({ netflixOriginals }: Props) => {
       netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]
     );
   }, [netflixOriginals]);
-  console.log(movie);
 
   return (
     <div className="h-screen md:h-auto relative aspect-auto md:aspect-[32/15]">
@@ -26,6 +25,7 @@ const Banner = ({ netflixOriginals }: Props) => {
           alt="netflix"
           layout="fill"
           objectFit="cover"
+          priority={false}
         />
       </div>
       <div className="absolute inset-0 md:bottom-0 md:left-0 md:top-0 md:right-[26.09%]  gradient-to-r-black-transparent"></div>
