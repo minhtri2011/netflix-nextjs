@@ -6,6 +6,9 @@
   .link {
     @apply ml-5 text-[.85vw] lg:text-[14px] [&.active]:font-bold [&.active]:text-white [&.active]:hover:text-white [&.active]:cursor-default text-[#E5E5E5] hover:text-[#b3b3b3] transition-colors duration-200 ease-in-out cursor-pointer;
   }
+  .input {
+    @apply w-full rounded bg-[#333333] px-5 py-3.5 placeholder-[gray] outline-none focus:bg-[#454545];
+  }
 }
 @layer utilities {
   .gradient-to-b-black-transparent {

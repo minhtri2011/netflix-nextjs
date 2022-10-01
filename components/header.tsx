@@ -8,12 +8,14 @@ import { AiFillCaretDown, AiOutlineLock, AiOutlineEdit } from "react-icons/ai";
 import { BiExit } from "react-icons/bi";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { FiHelpCircle } from "react-icons/fi";
+import useAuth from "@/hooks/useAuth";
 
 export interface HeaderProps {}
 
 export default function Header(props: HeaderProps) {
-  return (
-    <header className="gradient-to-b-black-transparent lg:h-17 h-[41px] flex items-center px-[4%] lg:px-[60px] fixed top-0 left-0 right-0 z-[1]">
+  const {logout}=useAuth()
+   return (
+<header className="gradient-to-b-black-transparent lg:h-17 h-[41px] flex items-center px-[4%] lg:px-[60px] fixed top-0 left-0 right-0 z-[1]">
       <div className="flex items-center justify-between w-full h-full">
         <div className="flex items-center h-full">
           <div className="lg:h-[25px] lg:w-[92.5px] h-[20px] w-[61px] lg:mr-[25px] cursor-pointer">
@@ -113,7 +115,7 @@ export default function Header(props: HeaderProps) {
                   </li>
                 </ul>
                 <hr className="bg-gray-900" />
-                <button className="py-[15px] px-[5px] text-white text-center w-full cursor-pointer">
+                <button onClick={logout} className="py-[15px] px-[5px] text-white text-center w-full cursor-pointer">
                   Sign out of Netflix
                 </button>
               </div>

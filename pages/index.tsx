@@ -1,10 +1,14 @@
+import { modalState } from "@/atoms/modalAtom";
 import Banner from "@/components/banner";
 import Header from "@/components/header";
+import Modal from "@/components/modal";
 import Row from "@/components/row";
+import useAuth from "@/hooks/useAuth";
 import { Movie } from "@/typing";
 import requests from "@/ultils/requests";
-import type { GetServerSideProps, NextPage } from "next";
+import type { GetServerSideProps } from "next";
 import Head from "next/head";
+import { useRecoilValue } from "recoil";
 interface Props {
   netflixOriginals: Movie[];
   trendingNow: Movie[];
@@ -27,6 +31,10 @@ const Home = ({
   trendingNow,
 }: // products,
 Props) => {
+  const { loading } = useAuth();
+  const showModal = useRecoilValue(modalState);
+  if (loading) return null;
+
   return (
     <div>
       <Head>
@@ -51,6 +59,7 @@ Props) => {
           <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
+      {showModal && <Modal/>}
     </div>
   );
 };
