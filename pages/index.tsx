@@ -33,7 +33,7 @@ const Home = ({
 Props) => {
   const { loading } = useAuth();
   const showModal = useRecoilValue(modalState);
-  if (loading) return null;
+  if (loading ) return null;
 
   return (
     <div>
@@ -67,12 +67,6 @@ Props) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  // const products = await getProducts(payments, {
-  //   includePrices: true,
-  //   activeOnly: true,
-  // })
-  //   .then((res) => res)
-  //   .catch((error) => console.log(error.message))
 
   const [
     netflixOriginals,
@@ -103,7 +97,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       horrorMovies: horrorMovies.results,
       romanceMovies: romanceMovies.results,
       documentaries: documentaries.results,
-      // products,
     },
   };
 };

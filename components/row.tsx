@@ -78,8 +78,8 @@ export default function Row({ title, movies }: IAppProps) {
         <button
           disabled={activeBtn}
           onClick={() => handleClick("left")}
-          className={`hidden sm:flex absolute cursor-pointer top-0 bottom-0 left-0 w-[60px] bg-[hsla(0,0%,8%,.5)] z-50 items-center justify-center ${
-            isMoved ? "" : "hidden"
+          className={`hidden absolute cursor-pointer top-0 bottom-0 left-0 w-[60px] bg-[hsla(0,0%,8%,.5)] z-50 items-center justify-center ${
+            isMoved ? "sm:flex" : "sm:hidden"
           }`}
         >
           <GoChevronLeft className="fill-white text-[30px]" />
