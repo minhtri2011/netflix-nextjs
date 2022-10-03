@@ -18,7 +18,6 @@ interface Props {
   horrorMovies: Movie[];
   romanceMovies: Movie[];
   documentaries: Movie[];
-  // products: Product[];
 }
 const Home = ({
   netflixOriginals,
@@ -33,7 +32,7 @@ const Home = ({
 Props) => {
   const { loading } = useAuth();
   const showModal = useRecoilValue(modalState);
-  if (loading ) return null;
+  if (loading) return null;
 
   return (
     <div>
@@ -50,16 +49,13 @@ Props) => {
           <Row title="Trending Now" movies={trendingNow} />
           <Row title="Top Rated" movies={topRated} />
           <Row title="Action Thrillers" movies={actionMovies} />
-          {/* My List */}
-          {/* {list.length > 0 && <Row title="My List" movies={list} />} */}
-
           <Row title="Comedies" movies={comedyMovies} />
           <Row title="Scary Movies" movies={horrorMovies} />
           <Row title="Romance Movies" movies={romanceMovies} />
           <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
-      {showModal && <Modal/>}
+      {showModal && <Modal />}
     </div>
   );
 };
@@ -67,7 +63,6 @@ Props) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-
   const [
     netflixOriginals,
     trendingNow,

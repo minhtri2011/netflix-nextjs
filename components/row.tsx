@@ -71,7 +71,7 @@ export default function Row({ title, movies }: IAppProps) {
             transform: `translate3d(${transform}%,0,0)`,
           }}
         >
-          {arrMovies.map((movie: Movie) => {
+          {arrMovies?.map((movie: Movie) => {
             return <Thumball refitem={thumbRef} item={movie} key={movie.id} />;
           })}
         </div>
